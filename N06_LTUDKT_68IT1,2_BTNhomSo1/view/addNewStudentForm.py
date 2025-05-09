@@ -20,6 +20,9 @@ class AddNewStudentForm(QtWidgets.QDialog):
     def addStudent(self):
         student_id = self.txtId.text()
         name = self.txtName.text()
+        if len(name) > 45:
+            QtWidgets.QMessageBox.warning(self, "Input Error", "Name cannot exceed 45 characters.")
+            return
         birthday = self.txtDob.date().toString("yyyy-MM-dd")
         department = self.txtDepartment.text()
         type = self.txtType.currentText()
