@@ -24,7 +24,20 @@ class EditInService(QtWidgets.QDialog):
         self.spinnerScore.setValue(float(data[7]))
         self.txtJob.setText(data[8])
     
-    def editStudent(self):
+  def editStudent(self):
+        if (self.txtName.text() == "" or
+            self.txtDob.text() == "" or
+            self.spinnerScore.value() == 0 or
+            self.txtJob.text() == ""):
+            QtWidgets.QMessageBox.warning(self, "Input Error", "Please fill in all fields.")
+            return
+        
+        if len(self.txtName.text()) > 45 :
+            QtWidgets.QMessageBox.warning(self, "Input Error", "Name must be less than 45 characters.")
+            return
+        if QtWidgets.QMessageBox.question(self, "Edit Confirmation", "Are you sure you want to edit this student?", 
+                                          QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No) == QtWidgets.QMessageBox.StandardButton.No:
+            return
         
         manager = ManagerStudent()
         manager.edit_student(self.student_id, [self.txtName.text(), self.txtDob.date().toString("yyyy-MM-dd"), self.txtDepartment.text(), "In-Service", None, None, self.spinnerScore.value(), self.txtJob.text()])
