@@ -20,6 +20,7 @@ class EditInService(QtWidgets.QDialog):
         self.txtName.setText(data[1])
         self.txtDob.setDate(data[2])
         self.txtDepartment.setText(data[3])
+        self.txtDepartment.setReadOnly(True)
         self.spinnerScore.setValue(float(data[7]))
         self.txtJob.setText(data[8])
     
