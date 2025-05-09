@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>add48.png</file>
+    <file>del48.png</file>
+    <file>edit48.png</file>
+    <file>sreach48.png</file>
+    <file>view48.png</file>
+  </qresource>
+</RCC>
