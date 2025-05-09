@@ -24,7 +24,7 @@ class EditInService(QtWidgets.QDialog):
         self.spinnerScore.setValue(float(data[7]))
         self.txtJob.setText(data[8])
     
-  def editStudent(self):
+    def editStudent(self):
         if (self.txtName.text() == "" or
             self.txtDob.text() == "" or
             self.spinnerScore.value() == 0 or
