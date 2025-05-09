@@ -18,6 +18,7 @@ class EditRegular(QtWidgets.QDialog):
         self.txtName.setText(data[1])
         self.txtDob.setDate(data[2]) 
         self.txtDepartment.setText(data[3])
+        self.txtDepartment.setReadOnly(True)
         self.spinnerGpa.setValue(float(data[5]))
         self.spinnerCredits.setValue(int(data[6]))
 
