@@ -23,6 +23,16 @@ class EditRegular(QtWidgets.QDialog):
         self.spinnerCredits.setValue(int(data[6]))
 
     def editStudent(self):
+        if (self.txtName.text() == "" or
+            self.txtDob.text() == "" or
+            self.spinnerGpa.value() == 0 or
+            self.spinnerCredits.value() == 0):
+            QtWidgets.QMessageBox.warning(self, "Input Error", "Please fill in all fields.")
+            return
+        
+        if len(self.txtName.text()) > 45 :
+            QtWidgets.QMessageBox.warning(self, "Input Error", "Name must be less than 45 characters.")
+            return
         
         if QtWidgets.QMessageBox.question(self, "Edit Confirmation", "Are you sure you want to edit this student?", 
                                           QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No) == QtWidgets.QMessageBox.StandardButton.No:
